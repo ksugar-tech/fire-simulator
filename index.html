@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)file:///C:/Users/user/Downloads/fire-simulator_2.html -->
+<html lang="ja" class="h-full dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIREシミュレーション</title>
+  <script src="./FIREシミュレーション_files/saved_resource"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            surface: { DEFAULT: '#0f1419', card: '#161d27', border: '#243041' },
+            accent: { cyan: '#22d3ee', violet: '#a78bfa', rose: '#fb7185', amber: '#fbbf24' }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="./FIREシミュレーション_files/chart.umd.min.js.ダウンロード"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    body { font-family: 'IBM Plex Sans JP', system-ui, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    input[type="number"]::-webkit-inner-spin-button { opacity: .6; }
+    .card-section { border-radius: 0.75rem; border-width: 1px; padding: 1rem; }
+    .input-man::placeholder { color: #94a3b8; font-size: 0.7rem; }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.col-span-2{grid-column:span 2 / span 2}.mb-0\.5{margin-bottom:0.125rem}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.ml-3{margin-left:0.75rem}.mr-1{margin-right:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.h-full{height:100%}.h-1{height:0.25rem}.max-h-\[55vh\]{max-height:55vh}.min-h-full{min-height:100%}.min-h-0{min-height:0px}.min-h-\[220px\]{min-height:220px}.min-h-\[300px\]{min-height:300px}.min-h-\[320px\]{min-height:320px}.w-3{width:0.75rem}.w-full{width:100%}.min-w-0{min-width:0px}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-between{justify-content:space-between}.gap-4{gap:1rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-slate-200 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(226 232 240 / var(--tw-divide-opacity, 1))}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded-lg{border-radius:0.5rem}.rounded{border-radius:0.25rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-cyan-100{--tw-border-opacity:1;border-color:rgb(207 250 254 / var(--tw-border-opacity, 1))}.border-cyan-200{--tw-border-opacity:1;border-color:rgb(165 243 252 / var(--tw-border-opacity, 1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-indigo-200{--tw-border-opacity:1;border-color:rgb(199 210 254 / var(--tw-border-opacity, 1))}.border-orange-200{--tw-border-opacity:1;border-color:rgb(254 215 170 / var(--tw-border-opacity, 1))}.border-rose-100{--tw-border-opacity:1;border-color:rgb(255 228 230 / var(--tw-border-opacity, 1))}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-violet-100{--tw-border-opacity:1;border-color:rgb(237 233 254 / var(--tw-border-opacity, 1))}.border-violet-200{--tw-border-opacity:1;border-color:rgb(221 214 254 / var(--tw-border-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}.bg-amber-50\/40{background-color:rgb(255 251 235 / 0.4)}.bg-cyan-400{--tw-bg-opacity:1;background-color:rgb(34 211 238 / var(--tw-bg-opacity, 1))}.bg-cyan-50\/30{background-color:rgb(236 254 255 / 0.3)}.bg-cyan-50\/50{background-color:rgb(236 254 255 / 0.5)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-50\/40{background-color:rgb(236 253 245 / 0.4)}.bg-emerald-50\/50{background-color:rgb(236 253 245 / 0.5)}.bg-indigo-50\/35{background-color:rgb(238 242 255 / 0.35)}.bg-orange-50\/40{background-color:rgb(255 247 237 / 0.4)}.bg-rose-50\/35{background-color:rgb(255 241 242 / 0.35)}.bg-slate-400{--tw-bg-opacity:1;background-color:rgb(148 163 184 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-50\/80{background-color:rgb(248 250 252 / 0.8)}.bg-slate-50\/90{background-color:rgb(248 250 252 / 0.9)}.bg-violet-50\/50{background-color:rgb(245 243 255 / 0.5)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.bg-white\/60{background-color:rgb(255 255 255 / 0.6)}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.pb-24{padding-bottom:6rem}.pt-1{padding-top:0.25rem}.text-left{text-align:left}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-cyan-600{--tw-text-opacity:1;color:rgb(8 145 178 / var(--tw-text-opacity, 1))}.text-cyan-700{--tw-text-opacity:1;color:rgb(14 116 144 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-indigo-800{--tw-text-opacity:1;color:rgb(55 48 163 / var(--tw-text-opacity, 1))}.text-orange-700{--tw-text-opacity:1;color:rgb(194 65 12 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-violet-600{--tw-text-opacity:1;color:rgb(124 58 237 / var(--tw-text-opacity, 1))}.text-violet-700{--tw-text-opacity:1;color:rgb(109 40 217 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.dark\:divide-surface-border:is(.dark *) > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(36 48 65 / var(--tw-divide-opacity, 1))}.dark\:border-surface-border:is(.dark *){--tw-border-opacity:1;border-color:rgb(36 48 65 / var(--tw-border-opacity, 1))}.dark\:border-amber-900\/50:is(.dark *){border-color:rgb(120 53 15 / 0.5)}.dark\:border-cyan-800\/60:is(.dark *){border-color:rgb(21 94 117 / 0.6)}.dark\:border-cyan-900\/50:is(.dark *){border-color:rgb(22 78 99 / 0.5)}.dark\:border-emerald-800\/60:is(.dark *){border-color:rgb(6 95 70 / 0.6)}.dark\:border-emerald-900\/50:is(.dark *){border-color:rgb(6 78 59 / 0.5)}.dark\:border-indigo-900\/50:is(.dark *){border-color:rgb(49 46 129 / 0.5)}.dark\:border-orange-900\/50:is(.dark *){border-color:rgb(124 45 18 / 0.5)}.dark\:border-rose-900\/50:is(.dark *){border-color:rgb(136 19 55 / 0.5)}.dark\:border-slate-600:is(.dark *){--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.dark\:border-violet-900\/50:is(.dark *){border-color:rgb(76 29 149 / 0.5)}.dark\:bg-surface:is(.dark *){--tw-bg-opacity:1;background-color:rgb(15 20 25 / var(--tw-bg-opacity, 1))}.dark\:bg-surface-card\/90:is(.dark *){background-color:rgb(22 29 39 / 0.9)}.dark\:bg-amber-950\/15:is(.dark *){background-color:rgb(69 26 3 / 0.15)}.dark\:bg-cyan-950\/15:is(.dark *){background-color:rgb(8 51 68 / 0.15)}.dark\:bg-cyan-950\/20:is(.dark *){background-color:rgb(8 51 68 / 0.2)}.dark\:bg-emerald-950\/15:is(.dark *){background-color:rgb(2 44 34 / 0.15)}.dark\:bg-emerald-950\/20:is(.dark *){background-color:rgb(2 44 34 / 0.2)}.dark\:bg-indigo-950\/15:is(.dark *){background-color:rgb(30 27 75 / 0.15)}.dark\:bg-orange-950\/15:is(.dark *){background-color:rgb(67 20 7 / 0.15)}.dark\:bg-rose-950\/15:is(.dark *){background-color:rgb(76 5 25 / 0.15)}.dark\:bg-slate-900\/30:is(.dark *){background-color:rgb(15 23 42 / 0.3)}.dark\:bg-surface-border\/50:is(.dark *){background-color:rgb(36 48 65 / 0.5)}.dark\:bg-surface-card:is(.dark *){--tw-bg-opacity:1;background-color:rgb(22 29 39 / var(--tw-bg-opacity, 1))}.dark\:bg-surface\/40:is(.dark *){background-color:rgb(15 20 25 / 0.4)}.dark\:bg-surface\/50:is(.dark *){background-color:rgb(15 20 25 / 0.5)}.dark\:bg-surface\/60:is(.dark *){background-color:rgb(15 20 25 / 0.6)}.dark\:bg-surface\/80:is(.dark *){background-color:rgb(15 20 25 / 0.8)}.dark\:bg-violet-950\/20:is(.dark *){background-color:rgb(46 16 101 / 0.2)}.dark\:text-slate-100:is(.dark *){--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.dark\:text-accent-amber:is(.dark *){--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.dark\:text-accent-cyan:is(.dark *){--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.dark\:text-accent-rose:is(.dark *){--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.dark\:text-accent-violet:is(.dark *){--tw-text-opacity:1;color:rgb(167 139 250 / var(--tw-text-opacity, 1))}.dark\:text-cyan-400:is(.dark *){--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.dark\:text-emerald-300:is(.dark *){--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.dark\:text-emerald-400:is(.dark *){--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.dark\:text-indigo-300:is(.dark *){--tw-text-opacity:1;color:rgb(165 180 252 / var(--tw-text-opacity, 1))}.dark\:text-orange-400:is(.dark *){--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.dark\:text-slate-200:is(.dark *){--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.dark\:text-slate-400:is(.dark *){--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.dark\:text-violet-400:is(.dark *){--tw-text-opacity:1;color:rgb(167 139 250 / var(--tw-text-opacity, 1))}.dark\:text-slate-300:is(.dark *){--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.dark\:hover\:bg-surface-border:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(36 48 65 / var(--tw-bg-opacity, 1))}@media (min-width: 640px){.sm\:col-span-1{grid-column:span 1 / span 1}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 1024px){.lg\:max-h-none{max-height:none}.lg\:max-w-lg{max-width:32rem}.lg\:shrink-0{flex-shrink:0}.lg\:flex-row{flex-direction:row}.lg\:border-b-0{border-bottom-width:0px}.lg\:border-r{border-right-width:1px}.lg\:border-t-0{border-top-width:0px}}@media (min-width: 1280px){.xl\:col-span-3{grid-column:span 3 / span 3}.xl\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style></head>
+<body class="h-full bg-slate-100 text-slate-900 dark:bg-surface dark:text-slate-100 antialiased transition-colors">
+  <div id="app" class="min-h-full flex flex-col">
+    <header class="shrink-0 border-b border-slate-200 dark:border-surface-border bg-white/80 dark:bg-surface-card/90 backdrop-blur px-4 py-3 flex items-center justify-between gap-4">
+      <h1 class="text-lg font-bold tracking-tight">FIREシミュレーション</h1>
+      <button type="button" id="themeToggle" class="rounded-lg border border-slate-200 dark:border-surface-border px-3 py-1.5 text-sm hover:bg-slate-50 dark:hover:bg-surface-border transition shrink-0">
+        <span id="themeLabel">ライト</span>
+      </button>
+    </header>
+
+    <div class="flex-1 flex flex-col lg:flex-row min-h-0 min-w-0">
+      <aside class="w-full lg:max-w-lg lg:shrink-0 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-surface-border bg-white dark:bg-surface-card overflow-y-auto max-h-[55vh] lg:max-h-none">
+        <div class="p-4 space-y-4 pb-24">
+
+          <!-- ▼ 基本・資産（運用・非運用を分離） -->
+          <section class="card-section border-slate-200 dark:border-surface-border bg-slate-50/80 dark:bg-surface/60">
+            <h2 class="text-sm font-bold text-cyan-600 dark:text-accent-cyan mb-3">基本・資産（単位：万円）</h2>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="col-span-2 sm:col-span-1"><span class="text-xs text-slate-500">現在の年齢</span>
+                <input type="number" id="currentAge" value="42" min="18" max="80" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <label class="col-span-2 sm:col-span-1"><span class="text-xs text-slate-500">リタイア予定年齢</span>
+                <input type="number" id="retireAge" value="55" min="30" max="85" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+
+              <!-- 運用資産 -->
+              <div class="col-span-2 rounded-lg border border-cyan-200 dark:border-cyan-800/60 bg-cyan-50/50 dark:bg-cyan-950/20 p-3 space-y-2">
+                <p class="text-xs font-semibold text-cyan-700 dark:text-cyan-400">📈 運用資産（投資口座）</p>
+                <label class="block"><span class="text-xs text-slate-500">特定口座残高（万円）</span>
+                  <input type="number" id="taxableBalMan" value="2500" step="10" placeholder="例：2500" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+                </label>
+                <label class="block"><span class="text-xs text-slate-500">NISA口座残高（万円）</span>
+                  <input type="number" id="nisaBalMan" value="1200" step="10" placeholder="例：1200" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+                </label>
+                <label class="block"><span class="text-xs text-slate-500">想定運用利回り（年利 %）</span>
+                  <input type="number" id="returnRate" value="4" step="0.1" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+                </label>
+              </div>
+
+              <!-- 非運用資産（新規追加） -->
+              <div class="col-span-2 rounded-lg border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/50 dark:bg-emerald-950/20 p-3 space-y-2">
+                <p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400">🏦 非運用資産（預貯金・現金）</p>
+                <label class="block"><span class="text-xs text-slate-500">残高合計（万円）</span>
+                  <input type="number" id="savingsBalMan" value="600" step="10" placeholder="例：600" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+                </label>
+                <label class="block"><span class="text-xs text-slate-500">取り崩し下限（万円・この残高以下には取り崩さない）</span>
+                  <input type="number" id="savingsFloorMan" value="100" step="10" placeholder="例：100" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+                </label>
+                <p class="text-[10px] text-slate-500">非運用資産は運用利回りを適用せず、不足時に優先的に取り崩します。下限を下回った分は運用資産から補います。</p>
+              </div>
+
+            </div>
+          </section>
+
+          <section class="card-section border-violet-200 dark:border-violet-900/50 bg-violet-50/50 dark:bg-violet-950/20">
+            <h2 class="text-sm font-bold text-violet-700 dark:text-accent-violet mb-1">現役（単位：万円／年 ほか）</h2>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-2">会社勤め期間の額面・手取り。天引き分は支出グラフに計上しません。</p>
+            <div class="space-y-3">
+              <label class="block"><span class="text-xs text-slate-500">年間収入（額面・万円）</span>
+                <input type="number" id="workGrossMan" value="800" step="10" placeholder="万円" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <label class="block"><span class="text-xs text-slate-500">年間収入（手取り・万円）</span>
+                <input type="number" id="workTakeHomeMan" value="600" step="10" placeholder="万円" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <label class="block"><span class="text-xs text-slate-500">想定賃上げ率（年 %・手取り・額面に適用）</span>
+                <input type="number" id="wageGrowth" value="1.5" step="0.1" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <p class="text-[11px]"><a href="https://www.chusho.meti.go.jp/pamflet/hakusyo/2025/chusho/b1_1_7.html" target="_blank" rel="noopener noreferrer" class="text-violet-600 dark:text-violet-400 underline">中小企業白書（賃上げの参考）</a></p>
+              <label class="block"><span class="text-xs text-slate-500">年間支出・生活費（住居・教育・娯楽除く・万円）</span>
+                <input type="number" id="workLivingBaseMan" value="180" step="10" placeholder="万円" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <div class="pt-1 border-t border-violet-100 dark:border-surface-border space-y-2">
+                <label class="block"><span class="text-xs text-slate-500">退職金 受取額（万円・一時金）</span>
+                  <input type="number" id="severanceMan" value="1500" step="50" placeholder="0で無効" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+                </label>
+                <label class="block"><span class="text-xs text-slate-500">退職金 受取年齢</span>
+                  <input type="number" id="severanceAge" value="55" min="18" max="100" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+                </label>
+                <p class="text-[10px] text-slate-500">受取年に特定口座へ一度だけ加算。収入内訳グラフにも反映します。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card-section border-emerald-200 dark:border-emerald-900/50 bg-emerald-50/40 dark:bg-emerald-950/15">
+            <h2 class="text-sm font-bold text-emerald-700 dark:text-emerald-400 mb-1">引退後（FIRE後）（単位：万円／年）</h2>
+            <p class="text-[11px] text-slate-600 dark:text-slate-400 mb-2">※額面を入力すると、税・社保（天引き分）を差し引いた<strong>推定手取り</strong>を自動計算します。</p>
+            <div class="space-y-3">
+              <label class="block"><span class="text-xs text-slate-500">年間収入（額面・万円）</span>
+                <input type="number" id="retireGrossMan" value="120" step="5" placeholder="万円" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <p class="text-sm mono font-medium text-emerald-700 dark:text-emerald-300" id="retireTakeHomePreview">推定年間手取り：67.9 万円（現在価値・概算）</p>
+              <label class="block"><span class="text-xs text-slate-500">完全退職年齢（この年以降は引退後の額面収入＝0）</span>
+                <input type="number" id="fullRetireAge" value="70" min="30" max="100" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <label class="block"><span class="text-xs text-slate-500">年間支出・生活費（住居・教育・娯楽除く・万円）</span>
+                <input type="number" id="retireLivingBaseMan" value="180" step="10" placeholder="万円" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" id="empIns" class="rounded border-slate-300 dark:border-surface-border">
+                <span class="text-sm">週20時間以上勤務（雇用保険0.6%・厚生期間の加算に使用）</span>
+              </label>
+              <label class="block"><span class="text-xs text-slate-500">引退後の厚生年金加入見込み年数（年・0のときは下記チェック時に「完全退職−リタイア」で自動）</span>
+                <input type="number" id="postRetireEmpYears" value="0" min="0" max="40" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+            </div>
+          </section>
+
+          <section class="card-section border-amber-200 dark:border-amber-900/50 bg-amber-50/40 dark:bg-amber-950/15">
+            <h2 class="text-sm font-bold text-amber-800 dark:text-accent-amber mb-1">住居費（万円／年・現在価値）</h2>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">最大3区間。重複は合算。インフレで伸びます。</p>
+            <div class="space-y-3">
+              <div class="grid grid-cols-3 gap-2 items-end">
+                <label><span class="text-[10px] text-slate-500">区間1 開始</span><input type="number" id="h1a" value="42" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+                <label><span class="text-[10px] text-slate-500">終了</span><input type="number" id="h1b" value="54" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+                <label><span class="text-[10px] text-slate-500">万円/年</span><input type="number" id="h1m" value="120" step="5" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+              </div>
+              <div class="grid grid-cols-3 gap-2 items-end">
+                <label><input type="number" id="h2a" value="55" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+                <label><input type="number" id="h2b" value="100" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+                <label><input type="number" id="h2m" value="72" step="5" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+              </div>
+              <div class="grid grid-cols-3 gap-2 items-end">
+                <label><input type="number" id="h3a" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+                <label><input type="number" id="h3b" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+                <label><input type="number" id="h3m" value="0" step="5" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1 text-xs mono"></label>
+              </div>
+            </div>
+          </section>
+
+          <section class="card-section border-indigo-200 dark:border-indigo-900/50 bg-indigo-50/35 dark:bg-indigo-950/15">
+            <h2 class="text-sm font-bold text-indigo-800 dark:text-indigo-300 mb-1">娯楽費（外食・旅費等・万円／年）</h2>
+            <p class="text-[11px] text-slate-500 mb-2">ライフステージ全体で共通。最大3区間（重複は合算）。</p>
+            <div class="grid grid-cols-3 gap-1.5 items-end text-[10px] mb-2">
+              <label><span class="text-slate-500">開始年齢</span><input type="number" id="le1a" value="42" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+              <label><span class="text-slate-500">終了</span><input type="number" id="le1b" value="100" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+              <label><span class="text-slate-500">万円/年</span><input type="number" id="le1m" value="30" step="1" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+            </div>
+            <div class="grid grid-cols-3 gap-1.5 items-end text-[10px] mb-2">
+              <label><input type="number" id="le2a" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+              <label><input type="number" id="le2b" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+              <label><input type="number" id="le2m" value="0" step="1" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+            </div>
+            <div class="grid grid-cols-3 gap-1.5 items-end text-[10px]">
+              <label><input type="number" id="le3a" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+              <label><input type="number" id="le3b" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+              <label><input type="number" id="le3m" value="0" step="1" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono text-xs"></label>
+            </div>
+          </section>
+
+          <section class="card-section border-slate-300 dark:border-slate-600 bg-slate-50/90 dark:bg-slate-900/30">
+            <h2 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-1">特別な支出（万円・最大3項目）</h2>
+            <p class="text-[10px] text-slate-500 mb-2">初回年齢から「間隔」年ごとに支出。終了年齢を過ぎたら発生しません。</p>
+            <div class="space-y-3 text-[10px]">
+              <div class="grid grid-cols-4 gap-1 items-end">
+                <label><span class="text-slate-500">① 初回年齢</span><input type="number" id="sp1a" value="50" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><span class="text-slate-500">間隔(年)</span><input type="number" id="sp1y" value="10" min="1" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><span class="text-slate-500">終了年齢</span><input type="number" id="sp1e" value="100" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><span class="text-slate-500">万円</span><input type="number" id="sp1m" value="150" step="10" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+              </div>
+              <div class="grid grid-cols-4 gap-1 items-end">
+                <label><input type="number" id="sp2a" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><input type="number" id="sp2y" value="1" min="1" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><input type="number" id="sp2e" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><input type="number" id="sp2m" value="0" step="10" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+              </div>
+              <div class="grid grid-cols-4 gap-1 items-end">
+                <label><input type="number" id="sp3a" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><input type="number" id="sp3y" value="1" min="1" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><input type="number" id="sp3e" value="0" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+                <label><input type="number" id="sp3m" value="0" step="10" class="w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-0.5 mono"></label>
+              </div>
+            </div>
+          </section>
+
+          <section class="card-section border-rose-200 dark:border-rose-900/50 bg-rose-50/35 dark:bg-rose-950/15">
+            <h2 class="text-sm font-bold text-rose-700 dark:text-accent-rose mb-1">年金（試算）</h2>
+            <p class="text-[11px] text-slate-600 dark:text-slate-400 mb-2 rounded-md bg-white/60 dark:bg-surface/80 p-2 border border-rose-100 dark:border-surface-border">
+              受給開始年齢：<strong>65歳より1年早いごとに約0.4%減額</strong>、<strong>65歳より1年遅いごとに約0.7%増額</strong>（簡易・乗算モデル）。
+            </p>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="col-span-2 sm:col-span-1"><span class="text-xs text-slate-500">就職時の年齢</span>
+                <input type="number" id="careerStartAge" value="22" min="15" max="40" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <label class="col-span-2 sm:col-span-1"><span class="text-xs text-slate-500">初任給（額面・万円）</span>
+                <input type="number" id="firstSalaryMan" value="500" step="10" min="0" placeholder="500" class="input-man mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <label class="col-span-2 sm:col-span-1"><span class="text-xs text-slate-500">受給開始年齢</span>
+                <input type="number" id="pensionAge" value="65" min="60" max="75" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <label class="col-span-2"><span class="text-xs text-slate-500">国民年金 加入月数</span>
+                <input type="number" id="pensionNatMonths" value="480" min="0" max="480" step="1" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+              <div class="col-span-2 rounded border border-rose-100 dark:border-surface-border bg-white/50 dark:bg-surface/40 p-2 text-[11px] space-y-1">
+                <p>厚生年金加入期間（自動）：<span id="pensionEmpYearsDisplay" class="mono font-semibold">35</span> 年<br>
+                  <span class="text-slate-500">（リタイア − 就職。いずれかの子が大学院進学の場合は就職を2年遅らせて計算）＋ 引退後の就労（厚生）年数</span></p>
+                <p>生涯平均の標準報酬月額（試算）：<span id="pensionStdDisplay" class="mono font-semibold">60</span> 万円／月<br>
+                  <span class="text-slate-500">初任給〜現額面を就職〜現在で線形、各年の月額に厚生年金上限（65万円／月）を適用。下欄で月額を一括上書き可。</span></p>
+              </div>
+              <label class="col-span-2"><span class="text-xs text-slate-500">標準報酬月額 手動上書き（万円／月・0で初任給〜現額面から自動）</span>
+                <input type="number" id="pensionStdOverrideMan" value="0" step="1" min="0" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+              </label>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2">老齢年金の<strong>年額</strong>目安（老齢厚生＝生涯平均報酬月額×0.005481×加入月数、老齢基礎＝満額約80万×加入／40年、受給年齢調整は簡易）：<span id="pensionPreview" class="mono font-medium text-rose-600 dark:text-accent-rose">213.1 万円／年（公的年金はインフレ非対応の名目）</span></p>
+          </section>
+
+          <section class="card-section border-cyan-200 dark:border-cyan-900/50 bg-cyan-50/30 dark:bg-cyan-950/15">
+            <h2 class="text-sm font-bold text-cyan-700 dark:text-accent-cyan mb-1">教育費（万円／年）</h2>
+            <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-surface-border text-[10px] sm:text-xs mb-2">
+              <table class="w-full text-left mono">
+                <thead class="bg-slate-100 dark:bg-surface-border/50">
+                  <tr>
+                    <th class="p-1.5">段階</th>
+                    <th class="p-1.5">公立</th>
+                    <th class="p-1.5">私立（万円／年）</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 dark:divide-surface-border">
+                  <tr><td class="p-1.5">小学校</td><td class="p-1.5">32</td><td class="p-1.5">170</td></tr>
+                  <tr><td class="p-1.5">中学校</td><td class="p-1.5">50</td><td class="p-1.5">145</td></tr>
+                  <tr><td class="p-1.5">高校</td><td class="p-1.5">45</td><td class="p-1.5">105</td></tr>
+                  <tr><td class="p-1.5">大学</td><td class="p-1.5">93</td><td class="p-1.5">文系 157 / 理系 178</td></tr>
+                  <tr><td class="p-1.5">大学院（年間）</td><td class="p-1.5">55</td><td class="p-1.5">文 95 / 理 115（2年総額÷2）</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-[10px] text-slate-500 mb-2">※数値は文部科学省『子供の学習費調査』に基づき、塾・習い事等を含む全国平均。大学院は入学金と2年間の授業料を想定し年間に按分しています。</p>
+            <label class="block mb-2"><span class="text-xs text-slate-500">教育費倍率（係数・1.0＝表どおり）</span>
+              <input type="number" id="eduCostFactor" value="1" step="0.05" min="0.1" max="3" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+            </label>
+            <p class="text-[10px] text-slate-500 mb-2">
+              参照：<a href="https://www.mext.go.jp/" target="_blank" rel="noopener noreferrer" class="text-cyan-600 dark:text-cyan-400 underline">文部科学省</a>、
+              <a href="https://www.e-stat.go.jp/" target="_blank" rel="noopener noreferrer" class="text-cyan-600 dark:text-cyan-400 underline">e-Stat</a>
+            </p>
+            <p class="text-[10px] text-slate-600 dark:text-slate-400 mb-2 rounded border border-cyan-100 dark:border-surface-border bg-white/50 dark:bg-surface/40 p-2">
+              <strong>児童手当（収入内訳に試算）</strong>：2024年10月改正の目安。出生順（最年長が第1子）で22歳年度末まで数え、第3子以降は0〜18歳で月3万円。児童手当は<strong>インフレ非対応（固定額）</strong>です。所得制限等は未反映です。<br>
+              <a href="https://www.cfa.go.jp/policies/kokoseido/jidouteate/annai" target="_blank" rel="noopener noreferrer" class="text-cyan-600 dark:text-cyan-400 underline">こども家庭庁 児童手当案内</a>
+            </p>
+            <label class="block mb-3"><span class="text-xs text-slate-500">子どもの人数</span>
+              <select id="childCount" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm">
+                <option value="0">0人</option>
+                <option value="1" selected="">1人</option>
+                <option value="2">2人</option>
+                <option value="3">3人</option>
+              </select>
+            </label>
+            <div id="childPanels" class="space-y-4"><div class="rounded-lg border border-slate-200 dark:border-surface-border p-3 space-y-2 bg-white/50 dark:bg-surface/40">
+        <p class="text-xs font-medium text-slate-600 dark:text-slate-300">子ども 1</p>
+        <label class="block"><span class="text-xs text-slate-500">現在の年齢</span>
+          <input type="number" id="childAge0" value="8" min="0" max="25" class="mt-1 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1 text-sm mono">
+        </label>
+        <div class="grid grid-cols-1 gap-2 text-xs">
+            <label><span class="text-slate-500">小学校</span>
+              <select id="child0_elem" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1">
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+              </select>
+            </label>
+            <label><span class="text-slate-500">中学校</span>
+              <select id="child0_junior" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1">
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+              </select>
+            </label>
+            <label><span class="text-slate-500">高校</span>
+              <select id="child0_high" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1">
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+              </select>
+            </label>
+            <label><span class="text-slate-500">大学</span>
+              <select id="child0_uni" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1">
+                <option value="public">公立大学</option>
+                <option value="private_arts">私立大学（文系）</option>
+                <option value="private_sci">私立大学（理系）</option>
+              </select>
+            </label>
+            <label><span class="text-slate-500">大学院（修士2年）</span>
+              <select id="child0_grad" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1">
+                <option value="none" selected="">進学しない</option>
+                <option value="public">国公立大学院</option>
+                <option value="private_arts">私立文系大学院</option>
+                <option value="private_sci">私立理系大学院（修士2年）</option>
+              </select>
+            </label></div></div></div>
+          </section>
+
+          <section class="card-section border-slate-200 dark:border-surface-border bg-slate-50/80 dark:bg-surface/60">
+            <h2 class="text-sm font-bold text-slate-700 dark:text-slate-200 mb-2">経済設定</h2>
+            <label class="block"><span class="text-xs text-slate-500">想定インフレ率（年 %）</span>
+              <input type="number" id="inflation" value="1.5" step="0.1" class="mt-1 w-full rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1.5 text-sm mono">
+            </label>
+            <p class="text-[10px] text-slate-500 mt-2">
+              参考：<a href="https://www.stat.go.jp/data/cpi/index.html" target="_blank" rel="noopener noreferrer" class="underline text-slate-600 dark:text-slate-400">総務省CPI</a> ／
+              <a href="https://www.boj.or.jp/statistics/pi/index.htm" target="_blank" rel="noopener noreferrer" class="underline text-slate-600 dark:text-slate-400">日銀 物価統計</a>
+            </p>
+          </section>
+
+          <section class="card-section border-orange-200 dark:border-orange-900/50 bg-orange-50/40 dark:bg-orange-950/15">
+            <h2 class="text-sm font-bold text-orange-700 dark:text-orange-400 mb-1">年代別 生活費係数</h2>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">「基本の生活費」にこの係数を掛けます。1.0＝変化なし。娯楽・住居・教育・特別支出には影響しません。</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <label class="flex flex-col"><span class="text-slate-500 mb-0.5">〜39歳</span>
+                <input type="number" id="ageFactor30" value="1.0" step="0.05" min="0.1" max="3" class="rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1 mono">
+              </label>
+              <label class="flex flex-col"><span class="text-slate-500 mb-0.5">40〜49歳</span>
+                <input type="number" id="ageFactor40" value="1.0" step="0.05" min="0.1" max="3" class="rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1 mono">
+              </label>
+              <label class="flex flex-col"><span class="text-slate-500 mb-0.5">50〜59歳</span>
+                <input type="number" id="ageFactor50" value="1.0" step="0.05" min="0.1" max="3" class="rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1 mono">
+              </label>
+              <label class="flex flex-col"><span class="text-slate-500 mb-0.5">60〜69歳</span>
+                <input type="number" id="ageFactor60" value="0.9" step="0.05" min="0.1" max="3" class="rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1 mono">
+              </label>
+              <label class="flex flex-col"><span class="text-slate-500 mb-0.5">70〜79歳</span>
+                <input type="number" id="ageFactor70" value="0.8" step="0.05" min="0.1" max="3" class="rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1 mono">
+              </label>
+              <label class="flex flex-col"><span class="text-slate-500 mb-0.5">80歳以上</span>
+                <input type="number" id="ageFactor80" value="0.7" step="0.05" min="0.1" max="3" class="rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1 mono">
+              </label>
+            </div>
+            <p class="text-[10px] text-slate-500 mt-2">デフォルト値は「高齢になるほど支出が緩やかに減少」するパターンの一例です。</p>
+          </section>
+        </div>
+      </aside>
+
+      <main class="flex-1 min-w-0 overflow-y-auto p-4 space-y-4 border-t lg:border-t-0 border-slate-200 dark:border-surface-border">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
+          <div class="xl:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="rounded-xl border border-slate-200 dark:border-surface-border bg-white dark:bg-surface-card p-4">
+              <p class="text-xs text-slate-500">資産寿命</p>
+              <p class="text-2xl font-bold mono text-cyan-600 dark:text-accent-cyan" id="sumDepletion">88 歳</p>
+            </div>
+            <div class="rounded-xl border border-slate-200 dark:border-surface-border bg-white dark:bg-surface-card p-4">
+              <p class="text-xs text-slate-500">100歳時点の予測残高（万円）</p>
+              <p class="text-2xl font-bold mono" id="sum100">0 万円</p>
+            </div>
+            <!-- 新規：資産内訳サマリー -->
+            <div class="rounded-xl border border-slate-200 dark:border-surface-border bg-white dark:bg-surface-card p-4">
+              <p class="text-xs text-slate-500 mb-1">現在の資産内訳</p>
+              <p class="text-xs text-cyan-600 dark:text-cyan-400 mono font-medium" id="sumInvest">運用: 2,800 万円</p>
+              <p class="text-xs text-emerald-600 dark:text-emerald-400 mono font-medium" id="sumSavings">非運用: 3,200 万円</p>
+              <p class="text-xs text-slate-500 mono font-medium mt-1 pt-1 border-t border-slate-100 dark:border-surface-border" id="sumTotal">合計: 6,000 万円</p>
+            </div>
+          </div>
+
+          <!-- 資産推移グラフ（運用・非運用・合計を分けて表示） -->
+          <div class="xl:col-span-3 rounded-xl border border-slate-200 dark:border-surface-border bg-white dark:bg-surface-card p-4 min-h-[220px]">
+            <h3 class="text-sm font-semibold mb-1">資産推移（万円）</h3>
+            <p class="text-[11px] text-slate-500 mb-2">
+              <span class="inline-block w-3 h-1 bg-cyan-400 mr-1 rounded"></span>運用資産（NISA＋特定口座）
+              <span class="inline-block w-3 h-1 bg-emerald-400 ml-3 mr-1 rounded"></span>非運用資産（預貯金・現金）
+              <span class="inline-block w-3 h-1 bg-slate-400 ml-3 mr-1 rounded"></span>合計。残高0以下の年以降は非表示。
+            </p>
+            <div style="position:relative;width:100%;height:250px"><canvas id="chartAssets" style="display: block; width: 943px; height: 250px; box-sizing: border-box;" width="1179" height="312"></canvas></div>
+          </div>
+
+          <div class="xl:col-span-3 rounded-xl border border-slate-200 dark:border-surface-border bg-white dark:bg-surface-card p-4 min-h-[300px]">
+            <h3 class="text-sm font-semibold mb-1">年間収入内訳（積み上げ・万円／年）</h3>
+            <p class="text-[11px] text-slate-500 mb-2">現役給与（手取り）・引退後収入（推定手取り）・年金・児童手当（試算）・退職金（受取年のみ）</p>
+            <div style="position:relative;width:100%;height:250px"><canvas id="chartIncome" style="display: block; width: 943px; height: 250px; box-sizing: border-box;" width="1179" height="312"></canvas></div>
+          </div>
+
+          <div class="xl:col-span-3 rounded-xl border border-slate-200 dark:border-surface-border bg-white dark:bg-surface-card p-4 min-h-[320px]">
+            <h3 class="text-sm font-semibold mb-1">年間支出内訳（積み上げ・万円／年）</h3>
+            <p class="text-[11px] text-slate-500 mb-2">生活費（基本）・娯楽・住居・特別支出・教育費・自己納付の税・社保（＋取り崩し税の目安）</p>
+            <div style="position:relative;width:100%;height:260px"><canvas id="chartStack" style="display: block; width: 943px; height: 260px; box-sizing: border-box;" width="1179" height="325"></canvas></div>
+          </div>
+
+          <div class="xl:col-span-3 rounded-xl border border-slate-200 dark:border-surface-border bg-white dark:bg-surface-card p-4 min-h-[300px]">
+            <h3 class="text-sm font-semibold mb-1">税金・社会保険料詳細内訳（自己納付分・万円／年）</h3>
+            <p class="text-[11px] text-slate-500 mb-2">額面130万円超で天引き扱いの年は0に近づきます。譲渡税は特定口座取り崩し益に連動します。</p>
+            <div style="position:relative;width:100%;height:250px"><canvas id="chartTaxDetail" style="display: block; width: 943px; height: 250px; box-sizing: border-box;" width="1179" height="312"></canvas></div>
+          </div>
+
+          <div class="xl:col-span-3 rounded-xl border border-slate-200 dark:border-surface-border bg-slate-50 dark:bg-surface/50 p-4">
+            <details class="group">
+              <summary class="text-sm font-semibold cursor-pointer text-slate-800 dark:text-slate-200">税・社会保険の計算メモ（クリックで展開）</summary>
+              <div class="mt-3 text-[11px] text-slate-600 dark:text-slate-400 space-y-2 leading-relaxed" id="taxLogBody">
+                <p><strong>前提</strong>：現役は「手取り」をキャッシュインとし、会社天引きの税・社保は支出側に二重計上しません。引退後は「額面」を入力し、下記の区分で手取りと自己納付を分離します。</p>
+                <p><strong>額面 &gt; 130万円／年（簡易・被用者扱い）</strong>：健康・厚生年金を約15%、雇用保険を賃金の0.6%（チェック時）、その後の課税所得に対し所得税・住民税をおおむね10%相当で控除し、残りを手取り。これらは天引き扱いのため<strong>支出グラフの「自己納付」には含めません</strong>。</p>
+                <p><strong>額面 ≤ 130万円／年</strong>：国民健康保険＝max(約18万円, 前年所得×9.5%＋均等割目安4.2万円)、国民年金（20〜59歳は約19.8万円／年の目安）、雇用保険0.6%（チェック時）。106万円超では所得割を強める簡易補正。手取りは額面から所得税・住民税の簡易控除（合計おおむね3%）後の残り。</p>
+                <p><strong>譲渡税（特定口座）</strong>：売却益の20.315%を取り崩し年の「税・社保」欄に加算（天引きではなく資産売却コスト）。詳細グラフでは所得税分と住民税分を統合表示します。</p>
+                <p><strong>児童手当</strong>：2024年10月改正の区分（出生順・第3子以降は月3万円／0〜18歳）。固定額でインフレを掛けません。</p>
+                <p><strong>非運用資産の取り崩し順序</strong>：現金・預貯金（非運用）を優先的に取り崩し、枯渇後に運用資産（特定口座→NISA）を取り崩します。非運用資産には運用利回りを適用しません。</p>
+              </div>
+            </details>
+            <details class="group mt-3">
+              <summary class="text-sm font-semibold cursor-pointer text-slate-800 dark:text-slate-200">インフレ対応に関する注釈</summary>
+              <div class="mt-2 text-[11px] text-slate-600 dark:text-slate-400 space-y-1.5 leading-relaxed">
+                <p><strong>【インフレ対応】</strong>：生活費、住居費、娯楽費、教育費（係数適用後）、特別な支出。</p>
+                <p><strong>【インフレ非対応】</strong>：児童手当、公的年金受給額、退職金（一時金の名目額）。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+(function () {
+  'use strict';
+
+  const LIFE_END_AGE = 100;
+
+  const EDU_COSTS = {
+    elementary: { public: 320000, private: 1700000 },
+    junior:     { public: 500000, private: 1450000 },
+    high:       { public: 450000, private: 1050000 },
+    university: { public: 930000, private_arts: 1570000, private_sci: 1780000 },
+    grad:       { public: 550000, private_arts: 950000, private_sci: 1150000 }
+  };
+
+  const TAX_ON_GAINS = 0.20315;
+  const EMP_INS_RATE = 0.006;
+  const THRESHOLD_106 = 1060000;
+  const THRESHOLD_130 = 1300000;
+  const FULL_KISO_ANNUAL = 800000;
+  const KOUSEI_STD_MONTHLY_CAP_YEN = 650000;
+  const KOUSEI_COEF = 0.005481;
+
+  function manToYen(m) { return (parseFloat(m) || 0) * 10000; }
+
+  function formatManFromYen(yen) {
+    if (yen == null || !isFinite(yen)) return '—';
+    const v = yen / 10000;
+    return v.toLocaleString('ja-JP', { maximumFractionDigits: 1 }) + ' 万円';
+  }
+
+  function pensionClaimAgeFactor(claimAge, baseAge) {
+    if (claimAge < baseAge) return Math.pow(0.996, baseAge - claimAge);
+    if (claimAge > baseAge) return Math.pow(1.007, claimAge - baseAge);
+    return 1;
+  }
+
+  function lifetimeAvgStandardMonthlyYen(p) {
+    const overrideMan = Math.max(0, p.pensionStdOverrideMan || 0);
+    if (overrideMan > 0) return overrideMan * 10000;
+
+    const career = p.careerStartAge;
+    const retire = p.retireAge;
+    const cur = p.currentAge;
+    const firstYen = Math.max(0, (p.firstSalaryMan || 0) * 10000);
+    const currentYen = Math.max(0, (p.workGrossMan || 0) * 10000);
+    if (retire <= career || firstYen <= 0 && currentYen <= 0) return 0;
+
+    let sum = 0;
+    let n = 0;
+    for (let a = career; a < retire; a++) {
+      let annualYen;
+      if (a <= cur) {
+        const denom = Math.max(1, cur - career);
+        annualYen = firstYen + (currentYen - firstYen) * ((a - career) / denom);
+      } else {
+        annualYen = currentYen;
+      }
+      const monthly = Math.min(annualYen / 12, KOUSEI_STD_MONTHLY_CAP_YEN);
+      sum += monthly;
+      n++;
+    }
+    return n > 0 ? sum / n : 0;
+  }
+
+  function estimatePensionAnnualYen(nationalMonths, employeeMonths, avgStandardMonthlyYen, claimAge) {
+    const natM = Math.max(0, Math.min(480, nationalMonths));
+    const kiso = (natM / 480) * FULL_KISO_ANNUAL;
+    const empM = Math.max(0, Math.floor(employeeMonths));
+    const avgYen = Math.max(0, avgStandardMonthlyYen);
+    const kousei = empM > 0 ? avgYen * KOUSEI_COEF * empM : 0;
+    let total = kiso + kousei;
+    total *= pensionClaimAgeFactor(claimAge, 65);
+    return Math.max(0, total);
+  }
+
+  function childAllowanceMonthlyYen(rank, childAge) {
+    if (childAge < 0 || childAge > 18) return 0;
+    if (rank <= 2) {
+      if (childAge < 3) return 15000;
+      return 10000;
+    }
+    return 30000;
+  }
+
+  function householdChildAllowanceAnnualYen(children, parentCurrentAge, simAge) {
+    const rows = children.map((c, idx) => ({
+      idx,
+      age: simAge - parentCurrentAge + c.age
+    }));
+    const forOrder = rows
+      .filter((r) => r.age >= 0 && r.age <= 22)
+      .sort((a, b) => (a.age !== b.age ? b.age - a.age : a.idx - b.idx));
+    const rankByIdx = {};
+    forOrder.forEach((r, pos) => {
+      rankByIdx[r.idx] = pos + 1;
+    });
+    let total = 0;
+    for (const r of rows) {
+      const rank = rankByIdx[r.idx];
+      if (!rank) continue;
+      const m = childAllowanceMonthlyYen(rank, r.age);
+      total += m * 12;
+    }
+    return total;
+  }
+
+  function parseSegments(prefix) {
+    const segs = [];
+    const add = (aId, bId, mId) => {
+      const a = parseInt(document.getElementById(aId)?.value, 10);
+      const b = parseInt(document.getElementById(bId)?.value, 10);
+      const m = parseFloat(document.getElementById(mId)?.value) || 0;
+      if (m > 0 && !isNaN(a) && !isNaN(b) && b >= a) segs.push({ from: a, to: b, man: m });
+    };
+    add(prefix + '1a', prefix + '1b', prefix + '1m');
+    add(prefix + '2a', prefix + '2b', prefix + '2m');
+    add(prefix + '3a', prefix + '3b', prefix + '3m');
+    return segs;
+  }
+
+  function segmentManAtAge(age, segments) {
+    let man = 0;
+    for (const s of segments) {
+      if (age >= s.from && age <= s.to) man += s.man;
+    }
+    return man * 10000;
+  }
+
+  const RATIO_INCOME_TAX_IN_CAP = 15.315 / 20.315;
+  const RATIO_RESIDENT_IN_CAP = 5 / 20.315;
+
+  function retireCashAndSelfSocialDetailed(grossYen, age, empIns, prevYearGrossYen) {
+    const gross = Math.max(0, grossYen);
+    const prev = Math.max(0, prevYearGrossYen);
+
+    if (gross > THRESHOLD_130) {
+      const si = gross * 0.15;
+      const ei = empIns ? gross * EMP_INS_RATE : 0;
+      const afterSi = gross - si - ei;
+      const tax = Math.max(0, (afterSi - 480000) * 0.1);
+      const takeHome = Math.max(0, afterSi - tax);
+      return {
+        takeHome,
+        selfPaySocial: 0,
+        incomeTaxSelf: 0,
+        residentTaxSelf: 0,
+        nhiIncome: 0,
+        nhiEqual: 0,
+        kokumin: 0,
+        ei: 0,
+        care: 0
+      };
+    }
+
+    let nhi = Math.max(180000, prev * 0.095 + 42000);
+    if (gross > THRESHOLD_106) nhi = Math.max(nhi, prev * 0.10 + 50000);
+
+    const kokumin = age >= 20 && age < 60 ? 198000 : 0;
+    const ei = empIns ? gross * EMP_INS_RATE : 0;
+    const care = age >= 40 && age < 65 ? Math.min(80000, nhi * 0.45) : 0;
+    const nhiAfterCare = Math.max(0, nhi - care);
+    const nhiEqual = Math.min(42000, nhiAfterCare * 0.5);
+    const nhiIncome = Math.max(0, nhiAfterCare - nhiEqual) + ei;
+
+    const incomeTaxSelf = Math.max(0, gross * 0.02);
+    const residentTaxSelf = Math.max(0, gross * 0.01);
+    const selfPaySocial = nhi + kokumin + ei;
+    const takeHome = Math.max(0, gross - incomeTaxSelf - residentTaxSelf);
+
+    return {
+      takeHome,
+      selfPaySocial,
+      incomeTaxSelf,
+      residentTaxSelf,
+      nhiIncome,
+      nhiEqual,
+      kokumin,
+      ei,
+      care
+    };
+  }
+
+  function retireCashAndSelfSocial(grossYen, age, empIns, prevYearGrossYen) {
+    const d = retireCashAndSelfSocialDetailed(grossYen, age, empIns, prevYearGrossYen);
+    return { takeHome: d.takeHome, selfPaySocial: d.selfPaySocial };
+  }
+
+  function withdrawTaxableForNetNeed(netNeeded, balance, basis) {
+    if (netNeeded <= 0 || balance <= 0) {
+      return { tax: 0, net: 0, newBal: balance, newBasis: basis, gross: 0 };
+    }
+    const gainRatio = Math.max(0, Math.min(1, (balance - basis) / balance));
+    const netPerGross = 1 - gainRatio * TAX_ON_GAINS;
+    const idealGross = netNeeded / Math.max(1e-12, netPerGross);
+    const gross = Math.min(idealGross, balance);
+    const gainPart = gross * gainRatio;
+    const tax = gainPart * TAX_ON_GAINS;
+    const net = gross - tax;
+    const newBal = balance - gross;
+    const basisReduction = balance > 0 ? basis * (gross / balance) : 0;
+    const newBasis = Math.max(0, basis - basisReduction);
+    return { tax, net, newBal, newBasis, gross };
+  }
+
+  /**
+   * 取り崩し順序：
+   * 1) 非運用資産（下限超過分）
+   * 2) 特定口座
+   * 3) NISA
+   * 4) 非運用資産（下限分・最後の手段）
+   */
+  function fulfillNetCashNeed(netNeed, savings, taxable, nisa, basis, savingsFloor) {
+    let rem = netNeed;
+    let taxTotal = 0;
+    let guard = 0;
+    const floor = savingsFloor || 0;
+
+    // 1) 非運用資産（下限超過分）を優先取り崩し
+    const savingsAvail = Math.max(0, savings - floor);
+    if (rem > 1e-2 && savingsAvail > 0) {
+      const take = Math.min(rem, savingsAvail);
+      savings -= take;
+      rem -= take;
+    }
+
+    // 2) 特定口座 → 3) NISA
+    while (rem > 1e-2 && (taxable > 0 || nisa > 0) && guard++ < 40) {
+      if (taxable > 0) {
+        const wd = withdrawTaxableForNetNeed(rem, taxable, basis);
+        taxTotal += wd.tax;
+        taxable = wd.newBal;
+        basis = wd.newBasis;
+        rem -= wd.net;
+      } else if (nisa > 0) {
+        const take = Math.min(rem, nisa);
+        nisa -= take;
+        rem -= take;
+      }
+    }
+
+    // 4) 非運用資産（下限分）を最後の手段として取り崩し
+    if (rem > 1e-2 && savings > 0) {
+      const take = Math.min(rem, savings);
+      savings -= take;
+      rem -= take;
+    }
+
+    return { rem, savings, taxable, nisa, basis, taxTotal };
+  }
+
+  function parseSpecialSpecs() {
+    const out = [];
+    for (let k = 1; k <= 3; k++) {
+      const fa = parseInt(document.getElementById('sp' + k + 'a')?.value, 10);
+      const iv = parseInt(document.getElementById('sp' + k + 'y')?.value, 10);
+      const end = parseInt(document.getElementById('sp' + k + 'e')?.value, 10);
+      const man = parseFloat(document.getElementById('sp' + k + 'm')?.value) || 0;
+      if (man > 0 && !isNaN(fa) && iv >= 1) {
+        out.push({
+          firstAge: fa,
+          interval: iv,
+          endAge: !isNaN(end) && end > 0 ? end : 999,
+          man
+        });
+      }
+    }
+    return out;
+  }
+
+  function specialExpenseTotalYen(age, specs, inflFactor) {
+    let sum = 0;
+    for (const s of specs) {
+      if (age > s.endAge) continue;
+      if (age < s.firstAge) continue;
+      if ((age - s.firstAge) % s.interval !== 0) continue;
+      sum += s.man * 10000 * inflFactor;
+    }
+    return sum;
+  }
+
+  function getInputs() {
+    const n = (id) => parseFloat(document.getElementById(id)?.value) || 0;
+    const ni = (id) => parseInt(document.getElementById(id)?.value, 10) || 0;
+    const childCount = Math.min(3, Math.max(0, ni('childCount')));
+    const children = [];
+    for (let i = 0; i < childCount; i++) {
+      const age = ni('childAge' + i);
+      const elem = document.getElementById('child' + i + '_elem')?.value === 'private' ? 'private' : 'public';
+      const junior = document.getElementById('child' + i + '_junior')?.value === 'private' ? 'private' : 'public';
+      const high = document.getElementById('child' + i + '_high')?.value === 'private' ? 'private' : 'public';
+      const uniSel = document.getElementById('child' + i + '_uni')?.value || 'public';
+      let uni = 'public';
+      if (uniSel === 'private_arts') uni = 'private_arts';
+      else if (uniSel === 'private_sci') uni = 'private_sci';
+      const gradSel = document.getElementById('child' + i + '_grad')?.value || 'none';
+      let grad = 'none';
+      if (gradSel === 'public') grad = 'public';
+      else if (gradSel === 'private_arts') grad = 'private_arts';
+      else if (gradSel === 'private_sci') grad = 'private_sci';
+      children.push({ age, elem, junior, high, uni, grad });
+    }
+
+    const retireAge = ni('retireAge');
+    const careerStart = ni('careerStartAge');
+    const fullRetireAge = Math.max(retireAge, ni('fullRetireAge'));
+    const postEmp = ni('postRetireEmpYears');
+    const empIns = document.getElementById('empIns')?.checked;
+    const spanPost = Math.max(0, fullRetireAge - retireAge);
+    const postWork = postEmp > 0 ? Math.min(postEmp, spanPost) : (empIns && spanPost > 0 ? spanPost : 0);
+    const hasGradSchoolChild = children.some((c) => c.grad && c.grad !== 'none');
+    const careerEffective = careerStart + (hasGradSchoolChild ? 2 : 0);
+    const empYears = Math.max(0, retireAge - careerEffective) + postWork;
+    const empMonths = Math.max(0, Math.round(empYears * 12));
+
+    const workGrossMan = n('workGrossMan');
+    const firstSalaryMan = n('firstSalaryMan') > 0 ? n('firstSalaryMan') : 500;
+    const overrideStd = n('pensionStdOverrideMan');
+    const stdMonthlyMan = overrideStd > 0 ? overrideStd : (workGrossMan > 0 ? workGrossMan / 12 : 0);
+
+    const claimAge = ni('pensionAge');
+    const pensionBase = {
+      currentAge: ni('currentAge'),
+      retireAge,
+      careerStartAge: careerEffective,
+      firstSalaryMan,
+      workGrossMan,
+      pensionStdOverrideMan: overrideStd
+    };
+    const avgStandardMonthlyYen = lifetimeAvgStandardMonthlyYen(pensionBase);
+    const pensionAnnualYen = estimatePensionAnnualYen(
+      ni('pensionNatMonths'),
+      empMonths,
+      avgStandardMonthlyYen,
+      claimAge
+    );
+
+    const eduCostFactor = Math.max(0.1, n('eduCostFactor') || 1);
+
+    return {
+      currentAge: ni('currentAge'),
+      retireAge,
+      fullRetireAge,
+      careerStartAge: careerStart,
+      careerEffectiveAge: careerEffective,
+      hasGradSchoolChild,
+      postRetireEmpYears: postEmp,
+      pensionEmpYears: empYears,
+      pensionEmpMonths: empMonths,
+      postWorkComputed: postWork,
+      stdMonthlyMan,
+      avgStandardMonthlyYen,
+      firstSalaryMan,
+      eduCostFactor,
+      taxable0: manToYen(n('taxableBalMan')),
+      nisa0: manToYen(n('nisaBalMan')),
+      // ▼ 非運用資産
+      savings0: manToYen(n('savingsBalMan')),
+      savingsFloor: manToYen(n('savingsFloorMan')),
+      // ▼ 年代別生活費係数
+      ageFactors: {
+        30: Math.max(0.1, n('ageFactor30') || 1),
+        40: Math.max(0.1, n('ageFactor40') || 1),
+        50: Math.max(0.1, n('ageFactor50') || 1),
+        60: Math.max(0.1, n('ageFactor60') || 1),
+        70: Math.max(0.1, n('ageFactor70') || 1),
+        80: Math.max(0.1, n('ageFactor80') || 1)
+      },
+      returnRate: n('returnRate') / 100,
+      wageGrowth: n('wageGrowth') / 100,
+      workTakeHome: manToYen(n('workTakeHomeMan')),
+      workGrossMan,
+      workLivingBase: manToYen(n('workLivingBaseMan')),
+      retireGrossMan: n('retireGrossMan'),
+      retireLivingBase: manToYen(n('retireLivingBaseMan')),
+      empIns,
+      pensionAge: claimAge,
+      pensionAnnualYen,
+      inflation: n('inflation') / 100,
+      housingSegs: parseSegments('h'),
+      leisureSegs: parseSegments('le'),
+      severanceMan: n('severanceMan'),
+      severanceAge: ni('severanceAge'),
+      specialSpecs: parseSpecialSpecs(),
+      children
+    };
+  }
+
+  function annualEducationForChild(age, child) {
+    const grad = child.grad && child.grad !== 'none' ? child.grad : null;
+    if (age < 6) return 0;
+    if (age <= 11) return EDU_COSTS.elementary[child.elem];
+    if (age <= 14) return EDU_COSTS.junior[child.junior];
+    if (age <= 17) return EDU_COSTS.high[child.high];
+    if (age <= 21) return EDU_COSTS.university[child.uni];
+    if (grad && age >= 22 && age <= 23) return EDU_COSTS.grad[grad];
+    return 0;
+  }
+
+  function buildChildPanels() {
+    const count = parseInt(document.getElementById('childCount').value, 10) || 0;
+    const host = document.getElementById('childPanels');
+    host.innerHTML = '';
+    const stages = [
+      ['elem', '小学校', 'pubpriv'],
+      ['junior', '中学校', 'pubpriv'],
+      ['high', '高校', 'pubpriv'],
+      ['uni', '大学', 'uni'],
+      ['grad', '大学院（修士2年）', 'grad']
+    ];
+    for (let i = 0; i < count; i++) {
+      const box = document.createElement('div');
+      box.className = 'rounded-lg border border-slate-200 dark:border-surface-border p-3 space-y-2 bg-white/50 dark:bg-surface/40';
+      let inner = `
+        <p class="text-xs font-medium text-slate-600 dark:text-slate-300">子ども ${i + 1}</p>
+        <label class="block"><span class="text-xs text-slate-500">現在の年齢</span>
+          <input type="number" id="childAge${i}" value="${8 + i * 3}" min="0" max="25" class="mt-1 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-2 py-1 text-sm mono" />
+        </label>
+        <div class="grid grid-cols-1 gap-2 text-xs">`;
+      for (const [key, lab, kind] of stages) {
+        if (kind === 'pubpriv') {
+          inner += `
+            <label><span class="text-slate-500">${lab}</span>
+              <select id="child${i}_${key}" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1">
+                <option value="public">公立</option>
+                <option value="private">私立</option>
+              </select>
+            </label>`;
+        } else if (kind === 'uni') {
+          inner += `
+            <label><span class="text-slate-500">${lab}</span>
+              <select id="child${i}_${key}" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1">
+                <option value="public">公立大学</option>
+                <option value="private_arts">私立大学（文系）</option>
+                <option value="private_sci">私立大学（理系）</option>
+              </select>
+            </label>`;
+        } else {
+          inner += `
+            <label><span class="text-slate-500">${lab}</span>
+              <select id="child${i}_${key}" class="mt-0.5 w-full rounded border border-slate-200 dark:border-surface-border bg-white dark:bg-surface px-1 py-1">
+                <option value="none" selected>進学しない</option>
+                <option value="public">国公立大学院</option>
+                <option value="private_arts">私立文系大学院</option>
+                <option value="private_sci">私立理系大学院（修士2年）</option>
+              </select>
+            </label>`;
+        }
+      }
+      inner += '</div>';
+      box.innerHTML = inner;
+      host.appendChild(box);
+    }
+  }
+
+  function simulate() {
+    const p = getInputs();
+    const years = LIFE_END_AGE - p.currentAge;
+    if (years < 0) return null;
+
+    let taxable = p.taxable0;
+    let nisa = p.nisa0;
+    let savings = p.savings0;   // ▼ 非運用資産
+    let taxableBasis = p.taxable0;
+    let severancePaid = false;
+
+    const ages = [];
+    const assets = [];          // 合計（運用＋非運用）
+    const investArr = [];       // 運用資産のみ
+    const savingsArr = [];      // 非運用資産のみ
+    const livingArr = [];
+    const leisureArr = [];
+    const housingArr = [];
+    const specialArr = [];
+    const eduArr = [];
+    const taxSocArr = [];
+
+    const incWork = [];
+    const incRetire = [];
+    const incPension = [];
+    const incChild = [];
+    const incSeverance = [];
+
+    const taxDetailIncome = [];
+    const taxDetailTransferUnified = [];
+    const taxDetailResident = [];
+    const taxDetailNhiMerged = [];
+    const taxDetailKokumin = [];
+    const taxDetailCare = [];
+
+    let depletionAge = null;
+    let prevRetireGrossYen = manToYen(p.retireGrossMan);
+
+    for (let i = 0; i <= years; i++) {
+      const age = p.currentAge + i;
+      const inflFactor = Math.pow(1 + p.inflation, i);
+      const wageFactor = Math.pow(1 + p.wageGrowth, i);
+
+      ages.push(age);
+
+      // 年代別生活費係数
+      const ageBracket = age >= 80 ? 80 : age >= 70 ? 70 : age >= 60 ? 60 : age >= 50 ? 50 : age >= 40 ? 40 : 30;
+      const ageCostFactor = p.ageFactors[ageBracket] || 1;
+      const livingBase = (age < p.retireAge
+        ? p.workLivingBase * inflFactor
+        : p.retireLivingBase * inflFactor) * ageCostFactor;
+
+      const leisure = segmentManAtAge(age, p.leisureSegs) * inflFactor;
+      const housingNominal = segmentManAtAge(age, p.housingSegs) * inflFactor;
+      const specialNominal = specialExpenseTotalYen(age, p.specialSpecs, inflFactor);
+
+      let eduYear = 0;
+      for (const c of p.children) {
+        const childAge = age - (p.currentAge - c.age);
+        eduYear += annualEducationForChild(childAge, c) * inflFactor * p.eduCostFactor;
+      }
+
+      const childAllowYen = householdChildAllowanceAnnualYen(p.children, p.currentAge, age);
+
+      let taxSocYear = 0;
+      let retireTakeHome = 0;
+      let grossRetireYen = manToYen(p.retireGrossMan) * inflFactor;
+      if (age >= p.fullRetireAge) grossRetireYen = 0;
+
+      let dInc = 0;
+      let dRes = 0;
+      let dNhiEq = 0;
+      let dNhiInc = 0;
+      let dKok = 0;
+      let dCare = 0;
+
+      if (age >= p.retireAge) {
+        const d = retireCashAndSelfSocialDetailed(grossRetireYen, age, p.empIns, prevRetireGrossYen);
+        retireTakeHome = d.takeHome;
+        taxSocYear = d.selfPaySocial;
+        prevRetireGrossYen = grossRetireYen;
+        dInc = d.incomeTaxSelf;
+        dRes = d.residentTaxSelf || 0;
+        dNhiEq = d.nhiEqual;
+        dNhiInc = d.nhiIncome;
+        dKok = d.kokumin;
+        dCare = d.care;
+      }
+
+      let cgtTransferInc = 0;
+      let cgtTransferRes = 0;
+
+      const rAsset = p.returnRate;
+
+      let severanceIncomeYen = 0;
+      if (!severancePaid && p.severanceMan > 0) {
+        const dueNow = age === p.severanceAge || (i === 0 && p.currentAge >= p.severanceAge);
+        if (dueNow) {
+          taxable += manToYen(p.severanceMan);
+          taxableBasis += manToYen(p.severanceMan);
+          severanceIncomeYen = manToYen(p.severanceMan);
+          severancePaid = true;
+        }
+      }
+
+      // 運用資産のみ利回りを適用（非運用資産には適用しない）
+      taxable *= 1 + rAsset;
+      nisa *= 1 + rAsset;
+
+      const obligation =
+        livingBase + leisure + housingNominal + specialNominal + eduYear + taxSocYear;
+
+      let incomeCash = 0;
+      let wInc = 0;
+      let rInc = 0;
+      let pInc = 0;
+
+      if (age < p.retireAge) {
+        wInc = p.workTakeHome * inflFactor * wageFactor;
+        incomeCash = wInc + childAllowYen;
+      } else {
+        pInc = age >= p.pensionAge ? p.pensionAnnualYen : 0;
+        rInc = retireTakeHome;
+        incomeCash = rInc + pInc + childAllowYen;
+      }
+
+      const needFromPortfolio = Math.max(0, obligation - incomeCash);
+      const surplusToInvest = Math.max(0, incomeCash - obligation);
+
+      if (needFromPortfolio > 0) {
+        // ▼ 非運用資産→運用資産の順で取り崩し
+        const out = fulfillNetCashNeed(needFromPortfolio, savings, taxable, nisa, taxableBasis, p.savingsFloor);
+        savings = out.savings;
+        taxable = out.taxable;
+        nisa = out.nisa;
+        taxableBasis = out.basis;
+        taxSocYear += out.taxTotal;
+        cgtTransferInc = out.taxTotal * RATIO_INCOME_TAX_IN_CAP;
+        cgtTransferRes = out.taxTotal * RATIO_RESIDENT_IN_CAP;
+        if (out.rem > 1e-3 && depletionAge === null) depletionAge = age;
+      }
+
+      const cgtUnified = cgtTransferInc + cgtTransferRes;
+      const nhiMerged = dNhiEq + dNhiInc;
+
+      taxDetailIncome.push(age >= p.retireAge ? dInc : 0);
+      taxDetailTransferUnified.push(cgtUnified);
+      taxDetailResident.push(age >= p.retireAge ? dRes : 0);
+      taxDetailNhiMerged.push(age >= p.retireAge ? nhiMerged : 0);
+      taxDetailKokumin.push(age >= p.retireAge ? dKok : 0);
+      taxDetailCare.push(age >= p.retireAge ? dCare : 0);
+
+      if (surplusToInvest > 0) {
+        taxable += surplusToInvest;
+        taxableBasis += surplusToInvest;
+      }
+
+      const invest = taxable + nisa;
+      const totalA = invest + savings;
+      assets.push(totalA);
+      investArr.push(invest);
+      savingsArr.push(savings);
+      livingArr.push(livingBase);
+      leisureArr.push(leisure);
+      housingArr.push(housingNominal);
+      specialArr.push(specialNominal);
+      eduArr.push(eduYear);
+      taxSocArr.push(taxSocYear);
+
+      incWork.push(age < p.retireAge ? wInc : 0);
+      incRetire.push(age >= p.retireAge ? rInc : 0);
+      incPension.push(age >= p.retireAge ? pInc : 0);
+      incChild.push(childAllowYen);
+      incSeverance.push(severanceIncomeYen);
+    }
+
+    const taxDetailPack = {
+      taxDetailIncome,
+      taxDetailTransferUnified,
+      taxDetailResident,
+      taxDetailNhiMerged,
+      taxDetailKokumin,
+      taxDetailCare
+    };
+
+    const i100 = 100 - p.currentAge;
+    const bal100 = i100 >= 0 && i100 < assets.length ? assets[i100] : null;
+
+    // グラフ表示用：合計が0以下になった年以降をnull
+    let lastPosIdx = -1;
+    for (let j = 0; j < assets.length; j++) {
+      if (assets[j] > 0) lastPosIdx = j;
+      else break;
+    }
+    const assetsChart  = assets.map((v, j) => (j <= lastPosIdx ? v : null));
+    const investChart  = investArr.map((v, j) => (j <= lastPosIdx ? v : null));
+    const savingsChart = savingsArr.map((v, j) => (j <= lastPosIdx ? v : null));
+
+    return {
+      ages,
+      agesChart: ages,
+      assets,
+      assetsChart,
+      investChart,
+      savingsChart,
+      investArr,
+      savingsArr,
+      livingArr,
+      leisureArr,
+      housingArr,
+      specialArr,
+      eduArr,
+      taxSocArr,
+      incWork,
+      incRetire,
+      incPension,
+      incChild,
+      incSeverance,
+      depletionAge,
+      bal100,
+      has100: p.currentAge <= 100,
+      taxDetailPack,
+      // 初期値（サマリー表示用）
+      invest0: p.taxable0 + p.nisa0,
+      savings0: p.savings0
+    };
+  }
+
+  let chartAssets = null;
+  let chartIncome = null;
+  let chartStack = null;
+  let chartTaxDetail = null;
+
+  function getChartColors() {
+    const dark = document.documentElement.classList.contains('dark');
+    return {
+      text: dark ? '#94a3b8' : '#64748b',
+      grid: dark ? '#243041' : '#e2e8f0',
+      living: dark ? '#34d399' : '#059669',
+      leisure: dark ? '#a78bfa' : '#7c3aed',
+      housing: dark ? '#fbbf24' : '#d97706',
+      special: dark ? '#94a3b8' : '#64748b',
+      edu: dark ? '#60a5fa' : '#2563eb',
+      tax: dark ? '#fb7185' : '#e11d48',
+      lineTotal: dark ? '#94a3b8' : '#64748b',
+      lineInvest: dark ? '#22d3ee' : '#0891b2',
+      lineSavings: dark ? '#4ade80' : '#16a34a',
+      incWork: dark ? '#38bdf8' : '#0284c7',
+      incRetire: dark ? '#4ade80' : '#16a34a',
+      incPension: dark ? '#fb7185' : '#e11d48',
+      incChild: dark ? '#f472b6' : '#db2777',
+      incSev: dark ? '#fcd34d' : '#d97706',
+      tdInc: dark ? '#f87171' : '#dc2626',
+      tdUnified: dark ? '#c084fc' : '#9333ea',
+      tdRes: dark ? '#e879f9' : '#c026d3',
+      tdNhiM: dark ? '#2dd4bf' : '#0d9488',
+      tdKok: dark ? '#818cf8' : '#4f46e5',
+      tdCare: dark ? '#facc15' : '#ca8a04'
+    };
+  }
+
+  function tooltipFooterTotal(tooltipItems) {
+    if (!tooltipItems || !tooltipItems.length) return '';
+    let sum = 0;
+    for (const it of tooltipItems) {
+      const v = it.parsed.y;
+      if (v != null && !isNaN(v)) sum += Number(v);
+    }
+    return '合計: ' + sum.toLocaleString('ja-JP', { maximumFractionDigits: 1 }) + ' 万円';
+  }
+
+  function tooltipFooterTotalIntMan(tooltipItems) {
+    if (!tooltipItems || !tooltipItems.length) return '';
+    let sum = 0;
+    for (const it of tooltipItems) {
+      const v = it.parsed.y;
+      if (v != null && !isNaN(v)) sum += Number(v);
+    }
+    const r = Math.round(sum);
+    return '合計: ' + r.toLocaleString('ja-JP') + ' 万円';
+  }
+
+  function taxDetailTooltipCallbacks() {
+    return {
+      label(ctx) {
+        const v = ctx.parsed.y;
+        if (v == null || isNaN(v)) return (ctx.dataset.label || '') + ': —';
+        const r = Math.round(Number(v));
+        return (ctx.dataset.label || '') + ': ' + r.toLocaleString('ja-JP') + ' 万円';
+      },
+      footer: tooltipFooterTotalIntMan
+    };
+  }
+
+  function renderCharts(result) {
+    const c = getChartColors();
+    const yTickMan = {
+      ticks: {
+        color: c.text,
+        callback: (v) => Number(v).toLocaleString('ja-JP') + '万'
+      },
+      grid: { color: c.grid }
+    };
+    const commonOpts = {
+      responsive: true,
+      maintainAspectRatio: false,
+      resizeDelay: 0,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { color: c.text } },
+        tooltip: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+            footer: tooltipFooterTotal
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: c.text, maxRotation: 45 }, grid: { color: c.grid } },
+        y: yTickMan
+      }
+    };
+
+    const toMan = (arr) => arr.map((x) => (x == null ? null : x / 10000));
+
+    // ▼ 資産推移グラフ（運用・非運用・合計の3本）
+    if (chartAssets) chartAssets.destroy();
+    chartAssets = new Chart(document.getElementById('chartAssets'), {
+      type: 'line',
+      data: {
+        labels: result.agesChart,
+        datasets: [
+          {
+            label: '合計資産',
+            data: toMan(result.assetsChart),
+            borderColor: c.lineTotal,
+            backgroundColor: 'rgba(148,163,184,0.07)',
+            fill: false,
+            tension: 0.15,
+            borderWidth: 2,
+            borderDash: [4, 3],
+            spanGaps: false
+          },
+          {
+            label: '運用資産（NISA＋特定口座）',
+            data: toMan(result.investChart),
+            borderColor: c.lineInvest,
+            backgroundColor: 'rgba(34,211,238,0.10)',
+            fill: true,
+            tension: 0.15,
+            borderWidth: 2,
+            spanGaps: false
+          },
+          {
+            label: '非運用資産（預貯金・現金）',
+            data: toMan(result.savingsChart),
+            borderColor: c.lineSavings,
+            backgroundColor: 'rgba(74,222,128,0.10)',
+            fill: true,
+            tension: 0.15,
+            borderWidth: 2,
+            spanGaps: false
+          }
+        ]
+      },
+      options: {
+        ...commonOpts,
+        plugins: {
+          ...commonOpts.plugins,
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label(ctx) {
+                const v = ctx.parsed.y;
+                if (v == null || isNaN(v)) return ctx.dataset.label + ': —';
+                return ctx.dataset.label + ': ' + Math.round(v).toLocaleString('ja-JP') + ' 万円';
+              },
+              footer(tooltipItems) {
+                // 「合計資産」データセット（index=0）の値をそのまま合計として表示
+                const totalItem = tooltipItems.find(it => it.datasetIndex === 0);
+                if (!totalItem) return '';
+                const v = totalItem.parsed.y;
+                if (v == null || isNaN(v)) return '';
+                return '合計: ' + Math.round(v).toLocaleString('ja-JP') + ' 万円';
+              }
+            }
+          }
+        },
+        scales: {
+          ...commonOpts.scales,
+          y: { ...commonOpts.scales.y, title: { display: true, text: '万円', color: c.text } }
+        }
+      }
+    });
+
+    if (chartIncome) chartIncome.destroy();
+    chartIncome = new Chart(document.getElementById('chartIncome'), {
+      type: 'bar',
+      data: {
+        labels: result.ages,
+        datasets: [
+          { label: '現役給与（手取り）', data: toMan(result.incWork), backgroundColor: c.incWork, stack: 'in' },
+          { label: '引退後収入（推定手取り）', data: toMan(result.incRetire), backgroundColor: c.incRetire, stack: 'in' },
+          { label: '年金', data: toMan(result.incPension), backgroundColor: c.incPension, stack: 'in' },
+          { label: '児童手当（試算）', data: toMan(result.incChild), backgroundColor: c.incChild, stack: 'in' },
+          { label: '退職金（受取年）', data: toMan(result.incSeverance), backgroundColor: c.incSev, stack: 'in' }
+        ]
+      },
+      options: {
+        ...commonOpts,
+        scales: {
+          x: { ...commonOpts.scales.x, stacked: true },
+          y: {
+            ...commonOpts.scales.y,
+            stacked: true,
+            title: { display: true, text: '万円／年', color: c.text }
+          }
+        }
+      }
+    });
+
+    const td = result.taxDetailPack;
+    if (chartTaxDetail) chartTaxDetail.destroy();
+    chartTaxDetail = new Chart(document.getElementById('chartTaxDetail'), {
+      type: 'bar',
+      data: {
+        labels: result.ages,
+        datasets: [
+          { label: '所得税（自己納付）', data: toMan(td.taxDetailIncome), backgroundColor: c.tdInc, stack: 'td' },
+          { label: '譲渡税（20.315%統合）', data: toMan(td.taxDetailTransferUnified), backgroundColor: c.tdUnified, stack: 'td' },
+          { label: '住民税', data: toMan(td.taxDetailResident), backgroundColor: c.tdRes, stack: 'td' },
+          { label: '国民健康保険（均等・所得割統合）', data: toMan(td.taxDetailNhiMerged), backgroundColor: c.tdNhiM, stack: 'td' },
+          { label: '国民年金', data: toMan(td.taxDetailKokumin), backgroundColor: c.tdKok, stack: 'td' },
+          { label: '介護保険（40歳以上）', data: toMan(td.taxDetailCare), backgroundColor: c.tdCare, stack: 'td' }
+        ]
+      },
+      options: {
+        ...commonOpts,
+        plugins: {
+          ...commonOpts.plugins,
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            callbacks: taxDetailTooltipCallbacks()
+          }
+        },
+        scales: {
+          x: { ...commonOpts.scales.x, stacked: true },
+          y: {
+            ...commonOpts.scales.y,
+            stacked: true,
+            title: { display: true, text: '万円／年', color: c.text }
+          }
+        }
+      }
+    });
+
+    if (chartStack) chartStack.destroy();
+    chartStack = new Chart(document.getElementById('chartStack'), {
+      type: 'bar',
+      data: {
+        labels: result.ages,
+        datasets: [
+          { label: '生活費（基本）', data: toMan(result.livingArr), backgroundColor: c.living, stack: 's' },
+          { label: '娯楽費', data: toMan(result.leisureArr), backgroundColor: c.leisure, stack: 's' },
+          { label: '住居費', data: toMan(result.housingArr), backgroundColor: c.housing, stack: 's' },
+          { label: '特別支出', data: toMan(result.specialArr), backgroundColor: c.special, stack: 's' },
+          { label: '教育費', data: toMan(result.eduArr), backgroundColor: c.edu, stack: 's' },
+          { label: '税・社保（自己納付等）', data: toMan(result.taxSocArr), backgroundColor: c.tax, stack: 's' }
+        ]
+      },
+      options: {
+        ...commonOpts,
+        scales: {
+          x: { ...commonOpts.scales.x, stacked: true },
+          y: {
+            ...commonOpts.scales.y,
+            stacked: true,
+            title: { display: true, text: '万円／年', color: c.text }
+          }
+        }
+      }
+    });
+  }
+
+  function updateAuxiliaryDisplays() {
+    const n = (id) => parseFloat(document.getElementById(id)?.value) || 0;
+    const ni = (id) => parseInt(document.getElementById(id)?.value, 10) || 0;
+
+    const retireAge = ni('retireAge');
+    const career = ni('careerStartAge');
+    const fullRetireAge = Math.max(retireAge, ni('fullRetireAge'));
+    const postEmp = ni('postRetireEmpYears');
+    const empIns = document.getElementById('empIns')?.checked;
+    const spanPost = Math.max(0, fullRetireAge - retireAge);
+    const postWork = postEmp > 0 ? Math.min(postEmp, spanPost) : (empIns && spanPost > 0 ? spanPost : 0);
+    const cc = Math.min(3, Math.max(0, ni('childCount')));
+    let hasGrad = false;
+    for (let i = 0; i < cc; i++) {
+      const g = document.getElementById('child' + i + '_grad')?.value;
+      if (g && g !== 'none') hasGrad = true;
+    }
+    const careerEff = career + (hasGrad ? 2 : 0);
+    const empY = Math.max(0, retireAge - careerEff) + postWork;
+    const empMo = Math.max(0, Math.round(empY * 12));
+    document.getElementById('pensionEmpYearsDisplay').textContent = String(empY);
+
+    const workGrossMan = n('workGrossMan');
+    const overrideStd = n('pensionStdOverrideMan');
+    const firstSalaryMan = n('firstSalaryMan') > 0 ? n('firstSalaryMan') : 500;
+    const careerEffForAvg = career + (hasGrad ? 2 : 0);
+    const avgYen = lifetimeAvgStandardMonthlyYen({
+      currentAge: ni('currentAge'),
+      retireAge,
+      careerStartAge: careerEffForAvg,
+      firstSalaryMan,
+      workGrossMan,
+      pensionStdOverrideMan: overrideStd
+    });
+    const avgMan = avgYen / 10000;
+    document.getElementById('pensionStdDisplay').textContent =
+      avgMan > 0 ? avgMan.toLocaleString('ja-JP', { maximumFractionDigits: 2 }) : '—';
+
+    const grossYen = manToYen(n('retireGrossMan'));
+    const retireA = Math.max(20, ni('retireAge'));
+    const r = retireCashAndSelfSocial(grossYen, retireA, empIns, grossYen);
+    const thMan = r.takeHome / 10000;
+    document.getElementById('retireTakeHomePreview').textContent =
+      '推定年間手取り：' + (grossYen > 0 ? thMan.toLocaleString('ja-JP', { maximumFractionDigits: 1 }) : '0') + ' 万円（現在価値・概算）';
+
+    const pensionYen = estimatePensionAnnualYen(
+      ni('pensionNatMonths'),
+      empMo,
+      avgYen,
+      ni('pensionAge')
+    );
+    document.getElementById('pensionPreview').textContent = formatManFromYen(pensionYen) + '／年（公的年金はインフレ非対応の名目）';
+  }
+
+  function update() {
+    updateAuxiliaryDisplays();
+    const result = simulate();
+    if (!result) return;
+
+    document.getElementById('sumDepletion').textContent =
+      result.depletionAge != null ? result.depletionAge + ' 歳' : '100歳まで枯渇なし';
+    document.getElementById('sum100').textContent = result.has100 && result.bal100 != null
+      ? formatManFromYen(result.bal100)
+      : '—';
+
+    // ▼ 資産内訳サマリー
+    const fmtM = (yen) => Math.round(yen / 10000).toLocaleString('ja-JP') + ' 万円';
+    document.getElementById('sumInvest').textContent = '運用: ' + fmtM(result.invest0);
+    document.getElementById('sumSavings').textContent = '非運用: ' + fmtM(result.savings0);
+    document.getElementById('sumTotal').textContent = '合計: ' + fmtM(result.invest0 + result.savings0);
+
+    renderCharts(result);
+  }
+
+  function initTheme() {
+    const saved = localStorage.getItem('firesim-theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    document.getElementById('themeLabel').textContent =
+      document.documentElement.classList.contains('dark') ? 'ライト' : 'ダーク';
+  }
+
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    const d = document.documentElement.classList.contains('dark');
+    localStorage.setItem('firesim-theme', d ? 'dark' : 'light');
+    document.getElementById('themeLabel').textContent = d ? 'ライト' : 'ダーク';
+    update();
+  });
+
+  document.getElementById('childCount').addEventListener('change', () => {
+    buildChildPanels();
+    update();
+  });
+
+  ['input', 'change'].forEach((ev) => {
+    document.getElementById('app').addEventListener(ev, (e) => {
+      if (e.target.matches('input, select')) update();
+    });
+  });
+
+  // ── localStorage 保存・復元 ──────────────────────────────
+  const STORAGE_KEY = 'firesim-inputs-v1';
+
+  function collectInputIds() {
+    const ids = [];
+    document.querySelectorAll('#app input[id], #app select[id]').forEach(el => {
+      if (el.id && el.id !== '') ids.push(el.id);
+    });
+    return ids;
+  }
+
+  function saveInputs() {
+    const data = {};
+    collectInputIds().forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.type === 'checkbox') data[id] = el.checked;
+      else data[id] = el.value;
+    });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+  }
+
+  function restoreInputs() {
+    let data;
+    try { data = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch(e) { return; }
+    if (!data) return;
+    Object.entries(data).forEach(([id, val]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.type === 'checkbox') el.checked = val;
+      else el.value = val;
+    });
+  }
+
+  // 入力変更のたびに保存
+  document.getElementById('app').addEventListener('input', saveInputs);
+  document.getElementById('app').addEventListener('change', saveInputs);
+  // ────────────────────────────────────────────────────────
+
+  buildChildPanels();
+  restoreInputs();   // ← 子パネル生成後に復元
+  initTheme();
+  update();
+
+  // スマホ対応：描画後に強制リサイズ
+  setTimeout(() => {
+    [chartAssets, chartIncome, chartStack, chartTaxDetail].forEach(ch => {
+      if (ch) ch.resize();
+    });
+  }, 100);
+})();
+  </script>
+
+
+</body></html>
